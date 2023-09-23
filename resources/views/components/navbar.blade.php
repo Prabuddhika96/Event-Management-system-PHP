@@ -14,5 +14,14 @@
         </ul>
     </div>
 
-    <div class="text-success fs-5">{{ $userName }}</div>
+    <div>
+        <ul class="nav ">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/login">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/register">Register</a>
+            </li>
+        </ul>
+    </div>
 </div>
