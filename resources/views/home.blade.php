@@ -1,7 +1,8 @@
 @extends('layout')
 
 @section('content')
-    <h1>Home</h1>
-
-    <p>This is home page</p>
+    @include('home.banner')
+    @include('home.about')
+    @include('home.eventgrid')
+    {{-- @include('home.swiper') --}}
 @endsection
