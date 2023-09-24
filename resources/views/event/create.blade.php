@@ -1,11 +1,11 @@
 @extends('layout')
 
 @section('title')
-    Event
+    Contact Us
 @endsection
 
 @section('content')
-    @include('components.title', ['pageName' => 'Event'])
+    @include('components.title', ['pageName' => 'Create Event'])
 
     <section class="section single-speaker">
 

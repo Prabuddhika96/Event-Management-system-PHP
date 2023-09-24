@@ -40,7 +40,11 @@
                     </div>
                 </li> --}}
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Events<span>/</span></a>
+                    <a class="nav-link" href="/all-events">All Events<span>/</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/event">Events<span>/</span></a>
                 </li>
                 {{-- <li class="nav-item">
                     <a class="nav-link" href="sponsors.html">Sponsors<span>/</span></a>
@@ -64,7 +68,7 @@
                     <a class="nav-link" href="/about">About<span>/</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/event">Create Event</a>
+                    <a class="nav-link" href="/create-event">Create Event</a>
                 </li>
             </ul>
 

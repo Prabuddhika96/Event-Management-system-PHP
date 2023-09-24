@@ -33,7 +33,12 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('users.create');
 });
-
+Route::get('/create-event', function () {
+    return view('event.create');
+});
+Route::get('/all-events', function () {
+    return view('event.allevents');
+});
 Route::get('/event', function () {
     return view('event.event');
 });
