@@ -61,7 +61,10 @@
                     <a class="nav-link" href="/contact">Contact<span>/</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/about">About</a>
+                    <a class="nav-link" href="/about">About<span>/</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">Create Event</a>
                 </li>
             </ul>
             <a href="/login" class="ticket">
