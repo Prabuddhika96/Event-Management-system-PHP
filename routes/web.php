@@ -34,6 +34,9 @@ Route::get('/register', function () {
     return view('users.create');
 });
 
+Route::get('/event', function () {
+    return view('event.event');
+});
 Route::resource('users', UserController::class);
 // Route::post('login', [UserController::class, 'login']);
 

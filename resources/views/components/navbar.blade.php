@@ -64,7 +64,7 @@
                     <a class="nav-link" href="/about">About<span>/</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/about">Create Event</a>
+                    <a class="nav-link" href="/event">Create Event</a>
                 </li>
             </ul>
 
