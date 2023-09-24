@@ -38,7 +38,10 @@
             </div>
         @endif --}}
 
-    @yield('content')
+    <div style="">
+        @yield('content')
+    </div>
+
 
     @include('components.footer', ['userName' => 'Prabuddhika'])
 

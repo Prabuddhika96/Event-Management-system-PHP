@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+    @include('components.title', ['pageName' => 'Error'])
     <section class="section error">
         <div class="container">
             <div class="row">

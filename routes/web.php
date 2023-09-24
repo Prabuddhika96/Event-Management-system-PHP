@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\UserController;
+// use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,14 +17,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('home.home');
 });
 Route::get('/about', function () {
     return view('about');
+});
+Route::get('/contact', function () {
+    return view('contact.create');
 });
 Route::get('/login', function () {
     return view('login');
 });
 Route::get('/register', function () {
-    return view('register');
+    return view('users.create');
 });
+
+Route::resource('users', UserController::class);
+// Route::post('login', [LoginController::class, 'login']);
+Route::post('login', [LoginController::class, 'login']);

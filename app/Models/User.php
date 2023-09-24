@@ -21,6 +21,15 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'mobile',
+        'dictrict',
+        'approved',
+        'approve_code'
+    ];
+
+    protected $attributes = [
+        'approved' => "0",
+        'approve_code' => "123456"
     ];
 
     /**
