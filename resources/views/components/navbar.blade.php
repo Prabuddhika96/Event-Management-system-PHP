@@ -67,10 +67,33 @@
                     <a class="nav-link" href="/about">Create Event</a>
                 </li>
             </ul>
-            <a href="/login" class="ticket">
+
+
+            <a href="/login" class="ticket" id="loginLink">
                 <img src="images/icon/ticket.png" alt="ticket">
                 <span>Login</span>
+            </a>
+
+            <a href="/login" class="ticket" id="loggedLink" style="display: none;">
+                <img src="images/icon/ticket.png" alt="ticket">
+                <span>Logged</span>
             </a>
         </div>
     </div>
 </nav>
+
+
+<script>
+    // Check if 'loggedUser' exists in local storage
+    const userData = localStorage.getItem('loggedUser');
+
+    if (userData) {
+        // User is logged in
+        document.getElementById('loginLink').style.display = 'none';
+        document.getElementById('loggedLink').style.display = 'block';
+    } else {
+        // User is not logged in
+        document.getElementById('loginLink').style.display = 'block';
+        document.getElementById('loggedLink').style.display = 'none';
+    }
+</script>

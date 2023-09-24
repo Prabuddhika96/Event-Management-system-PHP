@@ -50,7 +50,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        User::create($this->validateRequest());
+        $validatedData = $this->validateRequest();
+
+        // Hash the password before creating the user
+        $validatedData['password'] = bcrypt($validatedData['password']);
+
+        User::create($validatedData);
 
         return redirect('login');
     }
@@ -98,41 +103,5 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
-    }
-
-    public function login()
-    {
-        $data = request()->validate([
-            'email' => 'required|email',
-            // 'password' => 'required|min:5'
-        ]);
-
-        $user = User::where('email', $data['email'])->first();
-        // $attributesArray = $user->attributes;
-
-        // $user = User::find(1); // Assuming you have retrieved a User model instance.
-
-        // Accessing individual attributes.
-        $name = $user->name;
-        $email = $user->email;
-
-        // Accessing all attributes as an array.
-        $attributesArray = $user->attributes;
-
-        dd($attributesArray);
-
-        // if ($user) {
-        //     $user = User::where('password', $data['password']);
-        //     // auth()->login($user);
-
-        //     // Redirect to a dashboard or another page after successful login.
-        //     // return redirect('/');
-        //     dd($user);
-        // }
-        //  else {
-        //     // Email or password is incorrect.
-        //     // You can return an error message or redirect to the login page.
-        //     return redirect('/login')->with('error', 'Invalid email or password.');
-        // }
     }
 }
