@@ -7,5 +7,5 @@
 @section('content')
     @include('components.title', ['pageName' => 'All Events'])
 
-    @include('home.eventgrid')
+    @include('event.eventgrid')
 @endsection
