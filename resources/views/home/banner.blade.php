@@ -4,12 +4,13 @@
             <div class="col-md-6">
                 <!-- Content Block -->
                 <div class="block">
-                    <h1>Business</h1>
-                    <h2>Conference</h2>
-                    <h3>2017</h3>
-                    <h6>02-05 July 2017 California</h6>
+                    <h1>MATHAKA </h1>
+                    <h2>MANDIRA</h2>
+                    <h3>2023</h3>
+                    <h4>05 Sep 2017</h4>
+                    <h4>07:00 PM</h4>
                     <!-- Action Button -->
-                    <a href="#" class="btn btn-main-md">get ticket now</a>
+                    <a href="#" class="btn btn-main-md">More Details</a>
                 </div>
             </div>
         </div>

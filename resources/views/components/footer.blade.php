@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <div class="block text-center">
                     <div class="footer-logo">
-                        <img src="images/footer-logo.png" alt="logo" class="img-fluid">
+                        <img src="images/logo.png" alt="logo" class="img-fluid">
                     </div>
                     <ul class="social-links-footer list-inline">
                         <li class="list-inline-item">
@@ -35,7 +35,7 @@
         <div class="row">
             <div class="col-md-6 align-self-center">
                 <div class="copyright-text">
-                    <p><a href="#">Eventre</a> &#169; 2017 All Right Reserved</p>
+                    <p><a href="#">Eventify</a> &#169; 2023 All Right Reserved</p>
                 </div>
             </div>
             <div class="col-md-6">

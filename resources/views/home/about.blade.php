@@ -3,12 +3,12 @@
         <div class="row">
             <div class="col-lg-5 col-md-6 align-self-center">
                 <div class="image-block two bg-about">
-                    <img class="img-fluid" src="images/speakers/featured-speaker-two.jpg" alt="">
+                    <img class="img-fluid" src="images/eventImages/9.webp" alt="">
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 align-self-center ml-lg-auto">
                 <div class="content-block">
-                    <h2>About The <span class="alternate">Eventre</span></h2>
+                    <h2>About The <span class="alternate">MATHAKA MANDIRA</span></h2>
                     <div class="description-one">
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusm tempor incididunt ut
@@ -23,9 +23,9 @@
                         <li class="list-inline-item">
                             <a href="#" class="btn btn-main-md">Buy ticket</a>
                         </li>
-                        <li class="list-inline-item">
+                        {{-- <li class="list-inline-item">
                             <a href="#" class="btn btn-transparent-md">Read more</a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
             </div>
