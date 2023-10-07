@@ -14,16 +14,17 @@
                 <div class="row">
                     <div class="col-lg-5 col-md-6 align-self-md-center">
                         <div class="image-block">
-                            <img src="images/speakers/single-speaker.jpg" class="img-fluid" alt="speaker">
+                            <img src="images/eventImages/1.webp" class="img-fluid" alt="speaker">
                         </div>
                     </div>
                     <div class="col-lg-7 col-md-6 align-self-center">
                         <div class="content-block">
                             <div class="name">
-                                <h3>Jonathan Franco</h3>
+                                <h3>DREAMZ OF SHIHAN</h3>
                             </div>
                             <div class="profession">
-                                <p>Web Developer</p>
+                                <p class="text-success font-weight-bold">2023-09-05</p>
+                                <p class="text-success font-weight-bold">07:00 PM</p>
                             </div>
                             <div class="details">
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusm tempor incididunt
@@ -39,7 +40,7 @@
                                     Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur
                                 </p>
                             </div>
-                            <div class="social-profiles">
+                            {{-- <div class="social-profiles">
                                 <h5>Social Profiles</h5>
                                 <ul class="list-inline social-list">
                                     <li class="list-inline-item">
@@ -58,7 +59,7 @@
                                         <a href="#"><i class="fa fa-pinterest-p"></i></a>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -85,11 +86,11 @@
                         <div class="pricing-heading">
                             <!-- Title -->
                             <div class="title">
-                                <h6>Starter</h6>
+                                <h6>Bronze</h6>
                             </div>
                             <!-- Price -->
                             <div class="price">
-                                <h2>39.00<span>$</span></h2>
+                                <h2>Rs 2500.00</h2>
                                 <p>/Person</p>
                             </div>
                         </div>
@@ -97,16 +98,17 @@
                             <!-- Feature List -->
                             <ul class="feature-list m-0 p-0">
                                 <li>
-                                    <p><span class="fa fa-check-circle available"></span>1 Comfortable Seats</p>
+                                    <p><span class="fa fa-check-circle available"></span>1 Seat from back rows</p>
                                 </li>
                                 <li>
-                                    <p><span class="fa fa-check-circle available"></span>Free Lunch and Coffee</p>
+                                    <p><span class="fa fa-times-circle unavailable"></span>Free Beverage</p>
                                 </li>
+                                {{-- <li>
+                                    <p><span class="fa fa-check-circle available"></span>Certificate</p>
+                                </li> --}}
                                 <li>
-                                    <p><span class="fa fa-times-circle unavailable"></span>Certificate</p>
-                                </li>
-                                <li>
-                                    <p><span class="fa fa-times-circle unavailable"></span>Easy Access</p>
+                                    <p><span class="fa fa-check-circle available"></span>35/ 40 - sold
+                                    </p>
                                 </li>
                             </ul>
                         </div>
@@ -121,11 +123,11 @@
                         <div class="pricing-heading">
                             <!-- Title -->
                             <div class="title">
-                                <h6>Standard</h6>
+                                <h6>Gold</h6>
                             </div>
                             <!-- Price -->
                             <div class="price">
-                                <h2>49.00<span>$</span></h2>
+                                <h2>Rs 5000.00</h2>
                                 <p>/Person</p>
                             </div>
                         </div>
@@ -133,16 +135,17 @@
                             <!-- Feature List -->
                             <ul class="feature-list m-0 p-0">
                                 <li>
-                                    <p><span class="fa fa-check-circle available"></span>1 Comfortable Seats</p>
+                                    <p><span class="fa fa-check-circle available"></span>1 Seat from back rows</p>
                                 </li>
                                 <li>
-                                    <p><span class="fa fa-check-circle available"></span>Free Lunch and Coffee</p>
+                                    <p><span class="fa fa-check-circle available"></span>Free Beverage and Pop corn</p>
                                 </li>
-                                <li>
+                                {{-- <li>
                                     <p><span class="fa fa-check-circle available"></span>Certificate</p>
-                                </li>
+                                </li> --}}
                                 <li>
-                                    <p><span class="fa fa-times-circle unavailable"></span>Easy Access</p>
+                                    <p><span class="fa fa-check-circle available"></span>35/ 40 - sold
+                                    </p>
                                 </li>
                             </ul>
                         </div>
@@ -157,11 +160,11 @@
                         <div class="pricing-heading">
                             <!-- Title -->
                             <div class="title">
-                                <h6>Platinum</h6>
+                                <h6>Silver</h6>
                             </div>
                             <!-- Price -->
                             <div class="price">
-                                <h2>99.00<span>$</span></h2>
+                                <h2>Rs 3500.00</h2>
                                 <p>/Person</p>
                             </div>
                         </div>
@@ -169,16 +172,17 @@
                             <!-- Feature List -->
                             <ul class="feature-list m-0 p-0">
                                 <li>
-                                    <p><span class="fa fa-check-circle available"></span>1 Comfortable Seats</p>
+                                    <p><span class="fa fa-check-circle available"></span>1 Seat from middle rows</p>
                                 </li>
                                 <li>
-                                    <p><span class="fa fa-check-circle available"></span>Free Lunch and Coffee</p>
+                                    <p><span class="fa fa-check-circle available"></span>Free Beverage</p>
                                 </li>
-                                <li>
+                                {{-- <li>
                                     <p><span class="fa fa-check-circle available"></span>Certificate</p>
-                                </li>
+                                </li> --}}
                                 <li>
-                                    <p><span class="fa fa-check-circle available"></span>Easy Access</p>
+                                    <p><span class="fa fa-check-circle available"></span>35/ 40 - sold
+                                    </p>
                                 </li>
                             </ul>
                         </div>
