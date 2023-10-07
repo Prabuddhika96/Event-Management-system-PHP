@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,9 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home.home');
-})->name('home');
+// Route::get('/', function () {
+//     return view('home.home');
+// })->name('home');
+Route::get('/', [EventController::class, 'index']);
+
 Route::get('/home', function () {
     return view('home.home');
 });
@@ -34,20 +38,25 @@ Route::get('/register', function () {
     return view('users.create');
 });
 Route::get('/create-event', function () {
-    return view('event.create');
+    $categories = [
+        'Music',
+        'Drama',
+    ];
+    return view('event.create', ['categories' => $categories]);
 });
-Route::get('/all-events', function () {
-    return view('event.allevents');
-});
-Route::get('/event', function () {
-    return view('event.event');
-});
+// Route::get('/all-events', function () {
+//     return view('event.allevents');
+// });
+
+Route::get('/event/{event}', [EventController::class, 'showEvent']);
+
 Route::resource('users', UserController::class);
 // Route::post('login', [UserController::class, 'login']);
 
 Route::post('login', [AuthController::class, 'login'])->name('login');
 // Route::post('login', 'Auth\AuthController@login');
 
-Route::post('/create-event', function () {
-    dd(request('event-name'));
-});
+Route::post('/create-event', [EventController::class, 'store']);
+Route::get('/all-events', [EventController::class, 'allApprovedEvents']);
+
+Route::post('/buy-ticket/{eventId}/{ticketType}', [BookingController::class, 'buyTicket'])->name('buy-ticket');

@@ -14,7 +14,29 @@
 
         <div class="container text-center">
             <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-4">
-                <div class="col">
+                @foreach ($events as $event)
+                    <div class="col">
+                        @include('event.eventCard', [
+                            'event' => $event,
+                            'image' => 'images/eventImages/2.webp',
+                        ])
+                    </div>
+                    {{-- <div class="col">
+                        <div class="speaker">
+                            <div class="speaker-img">
+                                <img src="{{ asset('storage/'. $event->image) }}" class="img-fluid" alt="">
+                            </div>
+                            <div class="speaker-content">
+                                <h3>{{ $event->event_name }}</h3>
+                                <p>{{ $event->description }}</p>
+                                <a href="{{ route('event.show', $event->id) }}" class="btn btn-primary">Read More</a>
+                            </div>
+                        </div>
+                    </div> --}}
+                @endforeach
+            </div>
+
+            {{-- <div class="col">
                     @include('event.eventCard', [
                         'eventName' => 'DREAMZ OF SHIHAN',
                         'image' => 'images/eventImages/1.webp',
@@ -49,20 +71,9 @@
                         'eventName' => '2FORTY2 BAJAWWA',
                         'image' => 'images/eventImages/6.webp',
                     ])
-                </div>
-                {{-- <div class="col">
-                    @include('event.eventCard', ['eventName' => 'event 7','image'=>'images/eventImages/7.webp'])
-                </div>
-                <div class="col">
-                    @include('event.eventCard', ['eventName' => 'event 8','image'=>'images/eventImages/8.webp'])
-                </div>
-                <div class="col">
-                    @include('event.eventCard', ['eventName' => 'event 9','image'=>'images/eventImages/9.webp'])
-                </div>
-                <div class="col">
-                    @include('event.eventCard', ['eventName' => 'event 1','image'=>'images/eventImages/1.webp'])
                 </div> --}}
-            </div>
+
         </div>
+    </div>
     </div>
 </section>

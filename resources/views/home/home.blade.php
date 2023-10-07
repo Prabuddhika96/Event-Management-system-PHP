@@ -11,8 +11,8 @@
 @endif
 
 @section('content')
-    @include('home.banner')
-    @include('home.about')
+    @include('home.banner', ['event' => $latestEvent])
+    @include('home.about', ['event' => $latestEvent])
     {{-- @include('home.eventgrid') --}}
-    @include('home.swiper')
+    @include('home.swiper', ['approvedEvents' => $approvedEvents])
 @endsection

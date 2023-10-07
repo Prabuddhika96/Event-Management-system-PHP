@@ -4,13 +4,12 @@
             <div class="col-md-6">
                 <!-- Content Block -->
                 <div class="block">
-                    <h1>MATHAKA </h1>
-                    <h2>MANDIRA</h2>
+                    <h1>{{ $event->event_name }}</h1>
                     <h3>2023</h3>
-                    <h4>05 Sep 2017</h4>
-                    <h4>07:00 PM</h4>
+                    <h4>{{ $event->date }}</h4>
+                    <h4>{{ $event->time }}</h4>
                     <!-- Action Button -->
-                    <a href="#" class="btn btn-main-md">More Details</a>
+                    {{-- <a href="/event/{{ $event->id }}" class="btn btn-success">More Details</a> --}}
                 </div>
             </div>
         </div>

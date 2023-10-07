@@ -43,9 +43,9 @@
                     <a class="nav-link" href="/all-events">All Events<span>/</span></a>
                 </li>
 
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="/event">Events<span>/</span></a>
-                </li>
+                </li> --}}
                 {{-- <li class="nav-item">
                     <a class="nav-link" href="sponsors.html">Sponsors<span>/</span></a>
                 </li> --}}

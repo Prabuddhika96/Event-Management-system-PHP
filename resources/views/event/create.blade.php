@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title')
-    Contact Us
+    Create Event
 @endsection
 
 @section('content')
@@ -20,12 +20,12 @@
                             <div class="col-lg-5 col-md-6 align-self-md-center">
                                 {{-- event name --}}
                                 <div class="form-outline mb-4">
-                                    <label class="form-label" for="event-name">Event Name</label>
-                                    <input type="text" id="event-name" name="event-name"
+                                    <label class="form-label" for="event_name">Event Name</label>
+                                    <input type="text" id="event_name" name="event_name"
                                         class="form-control form-control-lg" placeholder="Enter your event name"
-                                        value="{{ old('event-name') }}" />
+                                        value="{{ old('event_name') }}" />
                                     <div class="text-danger pl-2">
-                                        {{ $errors->first('event-name') }}
+                                        {{ $errors->first('event_name') }}
                                     </div>
                                 </div>
 
@@ -35,12 +35,22 @@
                                     <select class="form-select form-select-lg mb-3" name="category"
                                         aria-label="Large select example" value="{{ old('category') }}">
                                         <option selected disabled>Select your category</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category }}">{{ $category }}</option>
+                                        @endforeach
                                     </select>
                                     <div class="text-danger pl-2">
                                         {{ $errors->first('category') }}
+                                    </div>
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="location">Venue</label>
+                                    <input type="text" id="location" name="location"
+                                        class="form-control form-control-lg" placeholder="Enter your location"
+                                        value="{{ old('location') }}" />
+                                    <div class="text-danger pl-2">
+                                        {{ $errors->first('location') }}
                                     </div>
                                 </div>
                             </div>
@@ -64,6 +74,10 @@
                                         {{ $errors->first('time') }}
                                     </div>
                                 </div>
+
+
+                                <input type="text" id="user_id" name="user_id" hidden value="" />
+
                             </div>
                         </div>
 
@@ -72,10 +86,10 @@
                             <h2>Description</h2>
                             {{-- event name --}}
                             <div class="form-outline mb-4">
-                                <label class="form-label" for="event-description">Event Description</label>
-                                <textarea class="form-control form-control-lg" placeholder="Enter your event description" name="event-description"></textarea>
+                                <label class="form-label" for="description">Event Description</label>
+                                <textarea class="form-control form-control-lg" placeholder="Enter your event description" name="description"></textarea>
                                 <div class="text-danger pl-2">
-                                    {{ $errors->first('event-description') }}
+                                    {{ $errors->first('description') }}
                                 </div>
                             </div>
                         </div>
@@ -88,12 +102,12 @@
                                 <h2>Ticket 1</h2>
                                 <div class="row">
                                     <div class="form-outline mb-4">
-                                        <label class="form-label" for="ticket-1">Ticket 1 Name</label>
-                                        <input type="text" id="ticket-1" name="ticket-1"
+                                        <label class="form-label" for="t1_name">Ticket 1 Name</label>
+                                        <input type="text" id="t1_name" name="t1_name"
                                             class="form-control form-control-lg" placeholder="Enter your ticket 1 name"
-                                            value="{{ old('ticket-1') }}" />
+                                            value="{{ old('t1_name') }}" />
                                         <div class="text-danger pl-2">
-                                            {{ $errors->first('ticket-1') }}
+                                            {{ $errors->first('t1_name') }}
                                         </div>
                                     </div>
 
@@ -101,24 +115,24 @@
                                 <div class="col-lg-5 col-md-6 align-self-md-center">
                                     {{-- ticket 1 price --}}
                                     <div class="form-outline mb-4">
-                                        <label class="form-label" for="ticket-1-price">Ticket 1 Price</label>
-                                        <input type="text" id="ticket-1-price" name="ticket-1-price"
+                                        <label class="form-label" for="t1_price">Ticket 1 Price</label>
+                                        <input type="text" id="t1_price" name="t1_price"
                                             class="form-control form-control-lg" placeholder="Enter your ticket 1 price"
-                                            value="{{ old('ticket-1-price') }}" />
+                                            value="{{ old('t1_price') }}" />
                                         <div class="text-danger pl-2">
-                                            {{ $errors->first('ticket-1-price') }}
+                                            {{ $errors->first('t1_price') }}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                                     {{-- ticket 1 count --}}
                                     <div class="form-outline mb-4">
-                                        <label class="form-label" for="ticket-1-count">Ticket 1 Count</label>
-                                        <input type="number" id="ticket-1-count" name="ticket-1-count"
+                                        <label class="form-label" for="t1_count">Ticket 1 Count</label>
+                                        <input type="number" id="t1_count" name="t1_count"
                                             class="form-control form-control-lg" placeholder="Enter your ticket 1 count"
-                                            value="{{ old('ticket-1-count') }}" />
+                                            value="{{ old('t1_count') }}" />
                                         <div class="text-danger pl-2">
-                                            {{ $errors->first('ticket-1-count') }}
+                                            {{ $errors->first('t1_count') }}
                                         </div>
                                     </div>
                                 </div>
@@ -129,12 +143,12 @@
                                 <h2>Ticket 2</h2>
                                 <div class="row">
                                     <div class="form-outline mb-4">
-                                        <label class="form-label" for="ticket-2">Ticket 2 Name</label>
-                                        <input type="text" id="ticket-2" name="ticket-2"
+                                        <label class="form-label" for="t2_name">Ticket 2 Name</label>
+                                        <input type="text" id="t2_name" name="t2_name"
                                             class="form-control form-control-lg" placeholder="Enter your ticket 2 name"
-                                            value="{{ old('ticket-2') }}" />
+                                            value="{{ old('t2_name') }}" />
                                         <div class="text-danger pl-2">
-                                            {{ $errors->first('ticket-2') }}
+                                            {{ $errors->first('t2_name') }}
                                         </div>
                                     </div>
 
@@ -142,24 +156,24 @@
                                 <div class="col-lg-5 col-md-6 align-self-md-center">
                                     {{-- ticket 1 price --}}
                                     <div class="form-outline mb-4">
-                                        <label class="form-label" for="ticket-2-price">Ticket 2 Price</label>
-                                        <input type="text" id="ticket-2-price" name="ticket-2-price"
+                                        <label class="form-label" for="t2_price">Ticket 2 Price</label>
+                                        <input type="text" id="t2_price" name="t2_price"
                                             class="form-control form-control-lg" placeholder="Enter your ticket 2 price"
-                                            value="{{ old('ticket-2-price') }}" />
+                                            value="{{ old('t2_price') }}" />
                                         <div class="text-danger pl-2">
-                                            {{ $errors->first('ticket-2-price') }}
+                                            {{ $errors->first('t2_price') }}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                                     {{-- ticket 1 count --}}
                                     <div class="form-outline mb-4">
-                                        <label class="form-label" for="ticket-2-count">Ticket 2 Count</label>
-                                        <input type="number" id="ticket-2-count" name="ticket-2-count"
+                                        <label class="form-label" for="t2_count">Ticket 2 Count</label>
+                                        <input type="number" id="t2_count" name="t2_count"
                                             class="form-control form-control-lg" placeholder="Enter your ticket 2 count"
-                                            value="{{ old('ticket-2-count') }}" />
+                                            value="{{ old('t2_count') }}" />
                                         <div class="text-danger pl-2">
-                                            {{ $errors->first('ticket-2-count') }}
+                                            {{ $errors->first('t2_count') }}
                                         </div>
                                     </div>
                                 </div>
@@ -170,12 +184,12 @@
                                 <h2>Ticket 3</h2>
                                 <div class="row">
                                     <div class="form-outline mb-4">
-                                        <label class="form-label" for="ticket-3">Ticket 3 Name</label>
-                                        <input type="text" id="ticket-3" name="ticket-3"
+                                        <label class="form-label" for="t3_name">Ticket 3 Name</label>
+                                        <input type="text" id="t3_name" name="t3_name"
                                             class="form-control form-control-lg" placeholder="Enter your ticket 3 name"
-                                            value="{{ old('ticket-3') }}" />
+                                            value="{{ old('t3_name') }}" />
                                         <div class="text-danger pl-2">
-                                            {{ $errors->first('ticket-3') }}
+                                            {{ $errors->first('t3_name') }}
                                         </div>
                                     </div>
 
@@ -183,24 +197,24 @@
                                 <div class="col-lg-5 col-md-6 align-self-md-center">
                                     {{-- ticket 1 price --}}
                                     <div class="form-outline mb-4">
-                                        <label class="form-label" for="ticket-3-price">Ticket 3 Price</label>
-                                        <input type="text" id="ticket-3-price" name="ticket-3-price"
+                                        <label class="form-label" for="t3_price">Ticket 3 Price</label>
+                                        <input type="text" id="t3_price" name="t3_price"
                                             class="form-control form-control-lg" placeholder="Enter your ticket 3 price"
-                                            value="{{ old('ticket-3-price') }}" />
+                                            value="{{ old('t3_price') }}" />
                                         <div class="text-danger pl-2">
-                                            {{ $errors->first('ticket-3-price') }}
+                                            {{ $errors->first('t3_price') }}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                                     {{-- ticket 1 count --}}
                                     <div class="form-outline mb-4">
-                                        <label class="form-label" for="ticket-3-count">Ticket 3 Count</label>
-                                        <input type="number" id="ticket-3-count" name="ticket-3-count"
+                                        <label class="form-label" for="t3_count">Ticket 3 Count</label>
+                                        <input type="number" id="t3_count" name="t3_count"
                                             class="form-control form-control-lg" placeholder="Enter your ticket 3 count"
-                                            value="{{ old('ticket-3-count') }}" />
+                                            value="{{ old('t3_count') }}" />
                                         <div class="text-danger pl-2">
-                                            {{ $errors->first('ticket-3-count') }}
+                                            {{ $errors->first('t3_count') }}
                                         </div>
                                     </div>
                                 </div>
@@ -223,3 +237,16 @@
             </div>
     </section>
 @endsection
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get user ID from local storage
+        var userData = localStorage.getItem('loggedUser');
+        var user = JSON.parse(userData); // Corrected JSON.parse() here
+
+        // console.log(user);
+        // Set user ID in the input field
+        document.getElementById('user_id').value = user.id;
+    });
+</script>

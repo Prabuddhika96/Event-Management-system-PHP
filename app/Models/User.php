@@ -27,6 +27,16 @@ class User extends Authenticatable
         'approve_code'
     ];
 
+    public function events()
+    {
+        return $this->hasMany(Event::class);
+    }
+
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
+
     protected $attributes = [
         'approved' => "0",
         'approve_code' => "123456"
