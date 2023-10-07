@@ -15,34 +15,34 @@
         <div class="container text-center">
             <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-4">
                 <div class="col">
-                    @include('event.eventCard', ['eventName' => 'event 1'])
+                    @include('event.eventCard', ['eventName' => 'event 1','eventDescription' => 'Description of Event 1','imageUrl' => asset('images/speakers/speaker-three.jpg')])
                 </div>
                 <div class="col">
-                    @include('event.eventCard', ['eventName' => 'event 2'])
+                    @include('event.eventCard', ['eventName' => 'event 2','eventDescription' => 'Description of Event 2,'imageUrl' => asset('images/speakers/speaker-three.jpg')])
                 </div>
                 <div class="col">
-                    @include('event.eventCard', ['eventName' => 'event 1'])
+                    @include('event.eventCard', ['eventName' => 'event 1','eventDescription' => 'Description of Event 1','imageUrl' => asset('images/speakers/speaker-three.jpg')])
                 </div>
                 <div class="col">
-                    @include('event.eventCard', ['eventName' => 'event 1'])
+                    @include('event.eventCard', ['eventName' => 'event 1','eventDescription' => 'Description of Event 1','imageUrl' => asset('images/speakers/speaker-three.jpg')])
                 </div>
                 <div class="col">
-                    @include('event.eventCard', ['eventName' => 'event 1'])
+                    @include('event.eventCard', ['eventName' => 'event 1','eventDescription' => 'Description of Event 1','imageUrl' => asset('images/speakers/speaker-three.jpg')])
                 </div>
                 <div class="col">
-                    @include('event.eventCard', ['eventName' => 'event 1'])
+                    @include('event.eventCard', ['eventName' => 'event 1','eventDescription' => 'Description of Event 1','imageUrl' => asset('images/speakers/speaker-three.jpg')])
                 </div>
                 <div class="col">
-                    @include('event.eventCard', ['eventName' => 'event 1'])
+                    @include('event.eventCard', ['eventName' => 'event 1','eventDescription' => 'Description of Event 1','imageUrl' => asset('images/speakers/speaker-three.jpg')])
                 </div>
                 <div class="col">
-                    @include('event.eventCard', ['eventName' => 'event 1'])
+                    @include('event.eventCard', ['eventName' => 'event 1','eventDescription' => 'Description of Event 1','imageUrl' => asset('images/speakers/speaker-three.jpg')])
                 </div>
                 <div class="col">
-                    @include('event.eventCard', ['eventName' => 'event 1'])
+                    @include('event.eventCard', ['eventName' => 'event 1','eventDescription' => 'Description of Event 1','imageUrl' => asset('images/speakers/speaker-three.jpg')])
                 </div>
                 <div class="col">
-                    @include('event.eventCard', ['eventName' => 'event 1'])
+                    @include('event.eventCard', ['eventName' => 'event 1','eventDescription' => 'Description of Event 1','imageUrl' => asset('images/speakers/speaker-three.jpg')])
                 </div>
             </div>
         </div>
