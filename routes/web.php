@@ -47,3 +47,7 @@ Route::resource('users', UserController::class);
 
 Route::post('login', [AuthController::class, 'login'])->name('login');
 // Route::post('login', 'Auth\AuthController@login');
+
+Route::post('/create-event', function () {
+    dd(request('event-name'));
+});

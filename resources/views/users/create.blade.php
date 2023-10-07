@@ -14,7 +14,7 @@
                 </div>
                 <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                     <h1>Register</h1>
-                    <form action="users" method="POST">
+                    <form action="register" method="POST">
                         {{-- name --}}
                         <div class="form-outline mb-4">
                             <label class="form-label" for="name">Name</label>

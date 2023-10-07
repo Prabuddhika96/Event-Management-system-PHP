@@ -13,14 +13,11 @@
             <div class="block">
                 <div class="row">
                     <h1 class="d-flex justify-content-center align-items-center">Create Event</h1>
-                    <form action="event" method="POST">
+                    <form action="/create-event" method="POST">
                         {{-- basic information --}}
                         <div class="row">
                             <h2>Basic Information</h2>
                             <div class="col-lg-5 col-md-6 align-self-md-center">
-                                {{-- <div class="image-block">
-                                <img src="images/speakers/single-speaker.jpg" class="img-fluid" alt="speaker">
-                            </div> --}}
                                 {{-- event name --}}
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="event-name">Event Name</label>

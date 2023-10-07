@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark bg-dark navbar-expand-sm">
+<nav class="navbar navbar-dark navbar-expand-sm">
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-4"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,12 +12,29 @@
                     <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
                         width="40" height="40" class="rounded-circle">
                 </a>
+
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Dashboard</a>
-                    <a class="dropdown-item" href="#">Edit Profile</a>
-                    <a class="dropdown-item" href="#">Log Out</a>
+
+                    <a class="dropdown-item" href="#">{{ $userName }}</a>
+                    <a class="dropdown-item" href="/create-event">Create Event</a>
+                    <div class="dropdown-item" onclick="logout()">Log Out</div>
                 </div>
             </li>
         </ul>
     </div>
 </nav>
+
+<script>
+    const userData = localStorage.getItem('loggedUser');
+
+    // if (userData) {
+    //     // Parse userData string back to JavaScript object
+    //     // const userObject = JSON.parse(userData);
+    // }
+
+    function logout() {
+        localStorage.clear();
+        console.log('Local storage cleared successfully.');
+        window.location.href = '/';
+    }
+</script>

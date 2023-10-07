@@ -33,7 +33,7 @@ class AuthController extends Controller
             return view('home.home')->with('userDataJson', $userDataJson);
         } else {
             // Authentication failed, return an error
-            return redirect('/login')->with('err-msg', 'Invalid login credentials');
+            return redirect('/')->with('err-msg', 'Invalid login credentials');
         }
     }
 }

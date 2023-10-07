@@ -65,11 +65,11 @@
                     <a class="nav-link" href="/contact">Contact<span>/</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/about">About<span>/</span></a>
+                    <a class="nav-link" href="/about">About</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="/create-event">Create Event</a>
-                </li>
+                </li> --}}
             </ul>
 
 
@@ -78,26 +78,13 @@
                 <span>Login</span>
             </a>
 
-            <a href="/login" class="ticket" id="loggedLink" style="display: none;">
-                <img src="images/icon/ticket.png" alt="ticket">
-                <span>Logged</span>
-            </a>
+            <div id="loggedLink" style="display: none; margin-right: 20px">
+                @include('components.profileSubmenu')
+            </div>
+
+
         </div>
     </div>
 </nav>
 
-
-<script>
-    // Check if 'loggedUser' exists in local storage
-    const userData = localStorage.getItem('loggedUser');
-
-    if (userData) {
-        // User is logged in
-        document.getElementById('loginLink').style.display = 'none';
-        document.getElementById('loggedLink').style.display = 'block';
-    } else {
-        // User is not logged in
-        document.getElementById('loginLink').style.display = 'block';
-        document.getElementById('loggedLink').style.display = 'none';
-    }
-</script>
+<script src="{{ asset('js/app.js') }}"></script>
