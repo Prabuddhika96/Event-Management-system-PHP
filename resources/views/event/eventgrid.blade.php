@@ -1,15 +1,6 @@
 <section class="section speakers bg-speaker overlay-lighter">
     <div class="container">
-        {{-- <div class="row">
-            <div class="col-12">
-                <!-- Section Title -->
-                <div class="section-title white">
-                    <h3>Who <span class="alternate">Speaking?</span></h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusm tempor incididunt ut labore
-                    </p>
-                </div>
-            </div>
-        </div> --}}
+
 
 
         <div class="container text-center">
@@ -18,60 +9,13 @@
                     <div class="col">
                         @include('event.eventCard', [
                             'event' => $event,
-                            'image' => 'images/eventImages/2.webp',
+                            'myEvents' => $myEvents,
                         ])
                     </div>
-                    {{-- <div class="col">
-                        <div class="speaker">
-                            <div class="speaker-img">
-                                <img src="{{ asset('storage/'. $event->image) }}" class="img-fluid" alt="">
-                            </div>
-                            <div class="speaker-content">
-                                <h3>{{ $event->event_name }}</h3>
-                                <p>{{ $event->description }}</p>
-                                <a href="{{ route('event.show', $event->id) }}" class="btn btn-primary">Read More</a>
-                            </div>
-                        </div>
-                    </div> --}}
                 @endforeach
             </div>
 
-            {{-- <div class="col">
-                    @include('event.eventCard', [
-                        'eventName' => 'DREAMZ OF SHIHAN',
-                        'image' => 'images/eventImages/1.webp',
-                    ])
-                </div>
-                <div class="col">
-                    @include('event.eventCard', [
-                        'eventName' => 'HUSAMA LIVE IN CONCERT',
-                        'image' => 'images/eventImages/2.webp',
-                    ])
-                </div>
-                <div class="col">
-                    @include('event.eventCard', [
-                        'eventName' => 'Y FM MUSIC FEST 2023',
-                        'image' => 'images/eventImages/7.webp',
-                    ])
-                </div>
-                <div class="col">
-                    @include('event.eventCard', [
-                        'eventName' => 'HARMONY',
-                        'image' => 'images/eventImages/4.webp',
-                    ])
-                </div>
-                <div class="col">
-                    @include('event.eventCard', [
-                        'eventName' => 'POP CORN NIGHT',
-                        'image' => 'images/eventImages/5.webp',
-                    ])
-                </div>
-                <div class="col">
-                    @include('event.eventCard', [
-                        'eventName' => '2FORTY2 BAJAWWA',
-                        'image' => 'images/eventImages/6.webp',
-                    ])
-                </div> --}}
+
 
         </div>
     </div>

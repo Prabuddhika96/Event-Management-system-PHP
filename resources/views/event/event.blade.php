@@ -19,7 +19,7 @@
                     </div>
                     <div class="col-lg-7 col-md-6 align-self-center">
                         <div class="content-block">
-                            <div class="name">
+                            <div class="name" style="display: flex; gap: 50px">
                                 <h1>{{ $eventData->event_name }}</h1>
                             </div>
                             <div class="profession">
@@ -211,3 +211,6 @@
         }
     }
 </script>
+
+
+<script></script>

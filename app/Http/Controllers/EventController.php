@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class EventController extends Controller
 {
@@ -91,6 +92,26 @@ class EventController extends Controller
     public function myEvents($userId)
     {
         $events = Event::where('user_id', $userId)->get();
+        return view('event.myevents', ['events' => $events]);
+    }
+
+    public function deleteEvent($event)
+    {
+        $eventToDelete = Event::find($event);
+        $EventOwnerId = $eventToDelete->user_id;
+        // dd($EventOwnerId);
+        // dd($eventToDelete->photo_path);
+        $eventToDelete->delete();
+
+        // Delete event image from storage
+        if ($eventToDelete->photo_path !== 'images/thumbnail/default.jpg') {
+            // Delete event image from storage
+            // Storage::delete($eventToDelete->photo_path);
+            Log::info("Deleting file: " . $eventToDelete->photo_path);
+            Storage::disk('public')->delete($eventToDelete->photo_path);
+        }
+
+        $events = Event::where('user_id', $EventOwnerId)->get();
         return view('event.myevents', ['events' => $events]);
     }
 }

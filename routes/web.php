@@ -62,3 +62,4 @@ Route::get('/all-events', [EventController::class, 'allApprovedEvents']);
 Route::post('/buy-ticket/{eventId}/{ticketType}', [BookingController::class, 'buyTicket'])->name('buy-ticket');
 
 Route::get('/my-events/{user}', [EventController::class, 'myEvents']);
+Route::post('/delete-event/{user}', [EventController::class, 'deleteEvent']);
