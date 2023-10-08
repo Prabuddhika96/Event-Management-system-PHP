@@ -60,3 +60,5 @@ Route::post('/create-event', [EventController::class, 'store']);
 Route::get('/all-events', [EventController::class, 'allApprovedEvents']);
 
 Route::post('/buy-ticket/{eventId}/{ticketType}', [BookingController::class, 'buyTicket'])->name('buy-ticket');
+
+Route::get('/my-events/{user}', [EventController::class, 'myEvents']);

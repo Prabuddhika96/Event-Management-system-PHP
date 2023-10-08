@@ -30,6 +30,7 @@ class Event extends Model
         't3_price',
         't3_count',
         't3_sold',
+        'photo_path'
     ];
 
     public function user()

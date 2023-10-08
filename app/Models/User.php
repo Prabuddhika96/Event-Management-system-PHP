@@ -22,9 +22,9 @@ class User extends Authenticatable
         'email',
         'password',
         'mobile',
-        'dictrict',
+        'district',
         'approved',
-        'approve_code'
+        'approve_code',
     ];
 
     public function events()
@@ -39,7 +39,9 @@ class User extends Authenticatable
 
     protected $attributes = [
         'approved' => "0",
-        'approve_code' => "123456"
+        'role' => "user",
+        'approve_code' => "123456",
+        'district' => "kegalle",
     ];
 
     /**

@@ -35,6 +35,7 @@ class CreateEventsTable extends Migration
             $table->double('t3_price');
             $table->integer('t3_count');
             $table->integer('t3_sold');
+            $table->string('photo_path');
             $table->timestamps();
         });
     }

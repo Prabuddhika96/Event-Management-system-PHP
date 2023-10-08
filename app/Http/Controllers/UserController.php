@@ -50,10 +50,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request['district']);
         $validatedData = $this->validateRequest();
 
         // Hash the password before creating the user
         $validatedData['password'] = bcrypt($validatedData['password']);
+        $validatedData['role'] = "user";
 
         User::create($validatedData);
 

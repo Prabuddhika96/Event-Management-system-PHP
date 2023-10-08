@@ -32,6 +32,7 @@ class EventFactory extends Factory
             't3_price' => $this->faker->price,
             't3_count' => $this->faker->name(),
             't3_sold' => $this->faker->name(),
+            'photo_path' => $this->faker->name(),
         ];
     }
 }

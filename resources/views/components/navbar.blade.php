@@ -2,7 +2,7 @@
     <div class="container-fluid p-0">
         <!-- logo -->
         <a class="navbar-brand" href="/">
-            <img src="{{ asset('images/logo.png') }}" alt="logo" />
+            <img src="{{ asset('images/logo.png') }}" width="150px" alt="logo" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

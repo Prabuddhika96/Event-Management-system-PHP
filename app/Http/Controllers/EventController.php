@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class EventController extends Controller
 {
@@ -46,7 +47,30 @@ class EventController extends Controller
         $event->t1_sold = 0;
         $event->t2_sold = 0;
         $event->t3_sold = 0;
+        $event->photo_path = 'images/thumbnail/default.jpg';
         $event->save();
+
+        // Handle file upload
+        if ($request->hasFile('photo') && $request->file('photo')->isValid()) {
+            $file = $request->file('photo');
+
+            $updated_path = 'images/thumbnail/' . $event->id . '.' . $file->getClientOriginalExtension();
+
+            $event->update(['photo_path' => $updated_path]);
+
+            // Generate a unique filename for the photo
+            $filename = $event->id . '.' . $file->getClientOriginalExtension();
+
+            // Store the file in the specified directory with the unique filename
+            // $file->storeAs('images/thumbnail', $filename, 'public');
+            if ($file->storeAs('images/thumbnail', $filename, 'public')) {
+                // dd("uploaded");
+            } else {
+                // dd("not uploaded");
+                // Log an error if the file upload fails
+                Log::error('Failed to upload file: ' . $file->getClientOriginalName());
+            }
+        }
 
         // Redirect to a success page or any other action you want
         return redirect('/')->with('success', 'Event created successfully!');
@@ -62,5 +86,11 @@ class EventController extends Controller
     {
         $eventData = Event::find($event);
         return view('event.event', compact('eventData'));
+    }
+
+    public function myEvents($userId)
+    {
+        $events = Event::where('user_id', $userId)->get();
+        return view('event.myevents', ['events' => $events]);
     }
 }

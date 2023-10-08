@@ -1,5 +1,8 @@
 <div class="card" style="width: 20rem;">
-    <img src="{{ $image }}" class="card-img-top" alt="...">
+    {{-- <img src="{{ asset('storage/' . $event->photo_path) }}" class="card-img-top" alt="..."> --}}
+    <img src="{{ asset('storage/' . $event->photo_path) }}" class="card-img-top" alt="...">
+
+
     <div class="card-body">
         <h5 class="card-title">{{ $event->event_name }}</h5>
 

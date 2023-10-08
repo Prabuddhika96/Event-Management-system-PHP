@@ -13,7 +13,7 @@
             <div class="block">
                 <div class="row">
                     <h1 class="d-flex justify-content-center align-items-center">Create Event</h1>
-                    <form action="/create-event" method="POST">
+                    <form action="/create-event" method="POST" enctype="multipart/form-data">
                         {{-- basic information --}}
                         <div class="row">
                             <h2>Basic Information</h2>
@@ -72,6 +72,16 @@
                                         value="{{ old('time') }}" />
                                     <div class="text-danger pl-2">
                                         {{ $errors->first('time') }}
+                                    </div>
+                                </div>
+
+                                {{-- event image --}}
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="photo">Event Thumbnail</label>
+                                    <input type="file" id="photo" name="photo" class="form-control form-control-lg"
+                                        value="{{ old('photo') }}" />
+                                    <div class="text-danger pl-2">
+                                        {{ $errors->first('photo') }}
                                     </div>
                                 </div>
 
@@ -244,6 +254,10 @@
         // Get user ID from local storage
         var userData = localStorage.getItem('loggedUser');
         var user = JSON.parse(userData); // Corrected JSON.parse() here
+
+        if (!user) {
+            window.location.href = '/login';
+        }
 
         // console.log(user);
         // Set user ID in the input field

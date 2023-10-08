@@ -1,5 +1,4 @@
 <nav class="navbar navbar-dark navbar-expand-sm">
-
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-4"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -14,9 +13,9 @@
                 </a>
 
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-
                     <a class="dropdown-item" href="#">{{ $userName }}</a>
                     <a class="dropdown-item" href="/create-event">Create Event</a>
+                    <div class="dropdown-item" onclick="myevents()" style="cursor: pointer;">My Events</div>
                     <div class="dropdown-item" onclick="logout()">Log Out</div>
                 </div>
             </li>
@@ -26,11 +25,14 @@
 
 <script>
     const userData = localStorage.getItem('loggedUser');
+    const userObject = JSON.parse(userData);
 
-    // if (userData) {
-    //     // Parse userData string back to JavaScript object
-    //     // const userObject = JSON.parse(userData);
-    // }
+    function myevents() {
+        if (userObject) {
+            window.location.href = `/my-events/${userObject.id}`;
+        }
+    }
+
 
     function logout() {
         localStorage.clear();

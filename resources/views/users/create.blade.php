@@ -31,9 +31,9 @@
                             <select class="form-select form-select-lg mb-3" name="district"
                                 aria-label="Large select example" value="{{ old('district') }}">
                                 <option selected disabled>Select your district</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <option value="One">One</option>
+                                <option value="Two">Two</option>
+                                <option value="Three">Three</option>
                             </select>
                             <div class="text-danger pl-2">
                                 {{ $errors->first('district') }}
