@@ -72,4 +72,52 @@ class BookingController extends Controller
             return redirect()->back()->with('error', 'Sorry, ' . $ticketName . ' tickets are sold out.');
         }
     }
+
+    public function BookedEvents($userId)
+    {
+        // Retrieve bookings for the specific user
+        $bookings = Booking::where('user_id', $userId)->get();
+
+        // Retrieve event details for each booking including ticket details
+        $events = [];
+        foreach ($bookings as $booking) {
+            // Retrieve the event using the event_id from the booking
+            $event = Event::find($booking->event_id);
+            if ($event) {
+                // Retrieve the ticket details based on the booking's ticket_id
+                $ticketDetails = [];
+                if ($booking->ticket_id == 1) {
+                    $ticketDetails = [
+                        'ticket_name' => $event->t1_name,
+                        'ticket_price' => $event->t1_price,
+                        'ticket_count' => $booking->ticket_count,
+                    ];
+                } elseif ($booking->ticket_id == 2) {
+                    $ticketDetails = [
+                        'ticket_name' => $event->t2_name,
+                        'ticket_price' => $event->t2_price,
+                        'ticket_count' => $booking->ticket_count,
+                    ];
+                } elseif ($booking->ticket_id == 3) {
+                    $ticketDetails = [
+                        'ticket_name' => $event->t3_name,
+                        'ticket_price' => $event->t3_price,
+                        'ticket_count' => $booking->ticket_count,
+                    ];
+                }
+
+                // If the event and ticket details exist, add them to the events array
+                if (!empty($ticketDetails)) {
+                    $events[] = [
+                        'events' => $event,
+                        'bookings' => $booking,
+                        'tickets' => $ticketDetails,
+                    ];
+                }
+            }
+        }
+        // dd($events);
+        // Pass the events array to the view
+        return view('event.bookedevents', ['events' => $events]);
+    }
 }

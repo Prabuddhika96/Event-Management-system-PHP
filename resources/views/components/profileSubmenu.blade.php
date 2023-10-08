@@ -16,6 +16,7 @@
                     <a class="dropdown-item" href="#">{{ $userName }}</a>
                     <a class="dropdown-item" href="/create-event">Create Event</a>
                     <div class="dropdown-item" onclick="myevents()" style="cursor: pointer;">My Events</div>
+                    <div class="dropdown-item" onclick="bookedevents()" style="cursor: pointer;">Booked Events</div>
                     <div class="dropdown-item" onclick="logout()">Log Out</div>
                 </div>
             </li>
@@ -30,6 +31,12 @@
     function myevents() {
         if (userObject) {
             window.location.href = `/my-events/${userObject.id}`;
+        }
+    }
+
+    function bookedevents() {
+        if (userObject) {
+            window.location.href = `/booked-events/${userObject.id}`;
         }
     }
 

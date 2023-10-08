@@ -8,8 +8,7 @@
                     <h3>2023</h3>
                     <h4>{{ $event->date }}</h4>
                     <h4>{{ $event->time }}</h4>
-                    <!-- Action Button -->
-                    {{-- <a href="/event/{{ $event->id }}" class="btn btn-success">More Details</a> --}}
+
                 </div>
             </div>
         </div>

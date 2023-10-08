@@ -6,13 +6,14 @@
                 <div class="speaker-slider">
                     @foreach ($approvedEvents as $event)
                         <div class="speaker-image">
-                            @if ($event->id % 3 == 0)
+                            {{-- @if ($event->id % 3 == 0)
                                 <img src="images/eventImages/2.webp" alt="speaker" class="img-fluid">
                             @elseif($event->id % 3 == 1)
                                 <img src="images/eventImages/5.webp" alt="speaker" class="img-fluid">
                             @else
-                                <img src="images/eventImages/4.webp" alt="speaker" class="img-fluid">
-                            @endif
+                                <img src="{{ asset('storage/' . $event->photo_path) }}" alt="speaker" class="img-fluid">
+                            @endif --}}
+                            <img src="{{ asset('storage/' . $event->photo_path) }}" alt="speaker" class="img-fluid">
                             <div class="primary-overlay text-center">
                                 <h5>{{ $event->event_name }}</h5>
                                 <p>{{ $event->category }}</p>

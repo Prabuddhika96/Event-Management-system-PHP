@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-5 col-md-6 align-self-center">
                 <div class="image-block two bg-about">
-                    <img class="img-fluid" src="images/eventImages/9.webp" alt="">
+                    <img class="img-fluid" src="{{ asset('storage/' . $event->photo_path) }}" alt="">
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 align-self-center ml-lg-auto">

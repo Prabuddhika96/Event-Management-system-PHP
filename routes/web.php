@@ -63,3 +63,5 @@ Route::post('/buy-ticket/{eventId}/{ticketType}', [BookingController::class, 'bu
 
 Route::get('/my-events/{user}', [EventController::class, 'myEvents']);
 Route::post('/delete-event/{user}', [EventController::class, 'deleteEvent']);
+
+Route::get('/booked-events/{user}', [BookingController::class, 'BookedEvents']);

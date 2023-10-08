@@ -1,13 +1,13 @@
 @extends('layout')
 
 @section('title')
-    My Events
+    Booked Events
 @endsection
 
 @section('content')
-    @include('components.title', ['pageName' => 'My Events'])
+    @include('components.title', ['pageName' => 'Booked Events'])
 
-    @include('event.eventgrid', ['events' => $events, 'myEvents' => true, 'booked' => false])
+    @include('event.eventgrid', ['events' => $events, 'myEvents' => false, 'booked' => true])
 @endsection
 
 

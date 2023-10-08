@@ -5,11 +5,15 @@
 
         <div class="container text-center">
             <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-4">
-                @foreach ($events as $event)
+                {{-- {{ dd($events) }} --}}
+                @foreach ($events as $eventData)
                     <div class="col">
+
                         @include('event.eventCard', [
-                            'event' => $event,
+                            'event' => $booked ? $eventData['events'] : $eventData,
                             'myEvents' => $myEvents,
+                            'bookings' => $eventData['bookings'],
+                            'tickets' => $eventData['tickets'],
                         ])
                     </div>
                 @endforeach

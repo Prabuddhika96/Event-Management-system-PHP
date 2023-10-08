@@ -11,7 +11,7 @@ class EventController extends Controller
 {
     public function index()
     {
-        $latestEvent = Event::latest()->first();
+        $latestEvent = Event::where('approved', 1)->latest()->first();
         $approvedEvents = Event::where('approved', 1)->get();
 
         // Pass the latest event to the view

@@ -10,18 +10,34 @@
             <p class="text-success font-weight-bold">{{ $event->date }}</p>
             <p class="text-success font-weight-bold">{{ $event->time }}</p>
         </div>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk
-            of the card's content.</p>
+
+        @if (isset($tickets))
+            {{-- {{ dd($tickets['ticket_name']) }} --}}
+            <div class="ticket-info">
+                {{-- <p class="text-success font-weight-bold">Ticket{{ $tickets['ticket_name'] }}</p> --}}
+                <p>Ticket Name: <span class="text-success font-weight-bold">{{ $tickets['ticket_name'] }}</span> </p>
+                <p>Price: <span class="text-success font-weight-bold">Rs {{ $tickets['ticket_price'] }}</span></p>
+                <p>Tickets <span class="text-success font-weight-bold">{{ $tickets['ticket_count'] }}</span></p>
+            </div>
+        @endif
+
+
+        @if (!isset($tickets))
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                of the card's content.</p>
+        @endif
+
         <a href="/event/{{ $event->id }}" class="btn btn-success">Read More</a>
 
         {{-- event delete button --}}
         @if ($myEvents && $event->approved == 0)
             <form action="/delete-event/{{ $event->id }}" method="POST" style="margin-top: 10px">
-                {{-- <div id="delete-button-container-{{ $event->id }}"></div> --}}
                 <button type="submit" class="btn btn-danger">Delete</button>
                 @csrf
             </form>
         @endif
+
+
     </div>
 </div>
 
