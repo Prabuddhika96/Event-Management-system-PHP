@@ -38,8 +38,13 @@ class UserController extends Controller
 
     public function create()
     {
+        $districts = [
+            'Colombo',
+            'Kandy',
+            'Galle'
+        ];
 
-        return view('users.create');
+        return view('users.create', compact('districts'));
     }
 
     /**
@@ -59,7 +64,7 @@ class UserController extends Controller
 
         User::create($validatedData);
 
-        return redirect('login');
+        return redirect('/login');
     }
 
     /**
@@ -81,7 +86,12 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        $districts = [
+            'Colombo',
+            'Kandy',
+            'Galle'
+        ];
+        return view('users.update-user', compact('user', 'districts'));
     }
 
     /**
@@ -93,8 +103,27 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $districts = [
+            'Colombo',
+            'Kandy',
+            'Galle'
+        ];
+
+        $validatedData = $request->validate([
+            'name' => 'required|min:3',
+            'mobile' => 'required',
+            'district' => 'required'
+        ]);
+
+        // Update the user data in the database
+        $user->update($validatedData);
+        $userDataJson = json_encode($user);
+
+        // Return the updated user data and store it in local storage
+        return view('users.update-user', compact('user', 'districts'))->with('userDataJson', $userDataJson);
     }
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -105,5 +134,15 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+    }
+
+    public function register()
+    {
+        $districts = [
+            'Colombo',
+            'Kandy',
+            'Galle'
+        ];
+        return view('users.create', compact('districts'));
     }
 }

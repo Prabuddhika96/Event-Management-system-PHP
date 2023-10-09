@@ -27,7 +27,16 @@
                 of the card's content.</p>
         @endif
 
-        <a href="/event/{{ $event->id }}" class="btn btn-success">Read More</a>
+        @if ($myEvents)
+            <a href="/my-event-details/{{ $event->id }}" class="btn btn-success">More Details</a>
+        @else
+            <a href="/event/{{ $event->id }}" class="btn btn-success">Read More</a>
+        @endif
+
+        @if ($myEvents && $event->approved == 0)
+            <a href="/update-event/{{ $event->id }}/edit" class="btn btn-primary" style="margin-top: 10px">Edit
+                Details</a>
+        @endif
 
         {{-- event delete button --}}
         @if ($myEvents && $event->approved == 0)

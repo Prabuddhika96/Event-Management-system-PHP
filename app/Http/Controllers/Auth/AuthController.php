@@ -33,7 +33,12 @@ class AuthController extends Controller
 
             $userDataJson = json_encode($authenticatedUser);
 
-            return view('home.home', compact('latestEvent', 'approvedEvents'))->with('userDataJson', $userDataJson);
+            if ($authenticatedUser->role == "user") {
+                return view('home.home', compact('latestEvent', 'approvedEvents'))->with('userDataJson', $userDataJson);
+            } else {
+                return view('admin.admin-home')->with('userDataJson', $userDataJson);
+                // return view('/admin/dashboard')->with('userDataJson', $userDataJson);
+            }
         } else {
             // Authentication failed, return an error
             return redirect('/')->with('err-msg', 'Invalid login credentials');

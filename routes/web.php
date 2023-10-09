@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\EventController;
@@ -31,24 +32,23 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('contact.create');
 });
+Route::get('/register', [UserController::class, 'register']);
+// Route::get('/register', function () {
+//     return view('users.create');
+// });
 Route::get('/login', function () {
     return view('login');
 });
-Route::get('/register', function () {
-    return view('users.create');
-});
-Route::get('/create-event', function () {
-    $categories = [
-        'Music',
-        'Drama',
-    ];
-    return view('event.create', ['categories' => $categories]);
-});
-// Route::get('/all-events', function () {
-//     return view('event.allevents');
-// });
+
+Route::get('/create-event', [EventController::class, 'createEvent']);
+
+// edit event details
+Route::patch('/update-event/{event}', [EventController::class, 'update']);
+Route::get('/update-event/{event}/edit', [EventController::class, 'edit']);
 
 Route::get('/event/{event}', [EventController::class, 'showEvent']);
+
+Route::get('/my-event-details/{event}', [EventController::class, 'myEventDetails']);
 
 Route::resource('users', UserController::class);
 // Route::post('login', [UserController::class, 'login']);
@@ -65,3 +65,20 @@ Route::get('/my-events/{user}', [EventController::class, 'myEvents']);
 Route::post('/delete-event/{user}', [EventController::class, 'deleteEvent']);
 
 Route::get('/booked-events/{user}', [BookingController::class, 'BookedEvents']);
+
+
+// edit user details
+Route::patch('/update-user/{user}', [UserController::class, 'update']);
+Route::get('/update-user/{user}/edit', [UserController::class, 'edit']);
+
+// admin
+Route::get('/admin/login', function () {
+    return view('admin.admin-login');
+});
+Route::post('/admin/login', [AuthController::class, 'login'])->name('login');
+Route::get('/admin/dashboard', [AdminController::class, 'dashboard']);
+Route::get('admin/pending-events', [AdminController::class, 'pendingEvents']);
+Route::get('admin/approved-events', [AdminController::class, 'approvedEvents']);
+Route::get('admin/users', [AdminController::class, 'allUsers']);
+Route::post('/admin/delete-event/{event}', [AdminController::class, 'deleteEvent']);
+Route::post('/admin/approve-event/{event}', [AdminController::class, 'approveEvent']);

@@ -1,8 +1,5 @@
 <section class="section speakers bg-speaker overlay-lighter">
     <div class="container">
-
-
-
         <div class="container text-center">
             <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-4">
                 {{-- {{ dd($events) }} --}}
@@ -18,9 +15,6 @@
                     </div>
                 @endforeach
             </div>
-
-
-
         </div>
     </div>
     </div>

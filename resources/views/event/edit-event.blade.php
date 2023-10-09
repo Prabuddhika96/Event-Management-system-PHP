@@ -1,19 +1,23 @@
 @extends('layout')
 
 @section('title')
-    Create Event
+    Update Event
 @endsection
 
 @section('content')
-    @include('components.title', ['pageName' => 'Create Event'])
+    @include('components.title', ['pageName' => 'Update Event'])
 
     <section class="section single-speaker">
 
         <div class="container">
             <div class="block">
                 <div class="row">
-                    <h1 class="d-flex justify-content-center align-items-center">Create Event</h1>
-                    <form action="/create-event" method="POST" enctype="multipart/form-data">
+                    <h1 class="d-flex justify-content-center align-items-center">Update Event</h1>
+                    <div class="image-block col-md-6" style="margin: 10px auto">
+                        <img src="{{ asset('storage/' . $eventData->photo_path) }}" class="img-fluid" alt="speaker">
+                    </div>
+                    <form action="/update-event/{{ $eventData->id }}" method="POST" enctype="multipart/form-data">
+                        @method('PATCH')
                         {{-- basic information --}}
                         <div class="row">
                             <h2>Basic Information</h2>
@@ -23,7 +27,7 @@
                                     <label class="form-label" for="event_name">Event Name</label>
                                     <input type="text" id="event_name" name="event_name"
                                         class="form-control form-control-lg" placeholder="Enter your event name"
-                                        value="{{ old('event_name') }}" />
+                                        value="{{ old('event_name') ?? $eventData->event_name }}" />
                                     <div class="text-danger pl-2">
                                         {{ $errors->first('event_name') }}
                                     </div>
@@ -33,11 +37,11 @@
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="category">Category</label>
                                     <select class="form-select form-select-lg mb-3" name="category"
-                                        aria-label="Large select example" value="{{ old('category') }}">
-                                        <option selected disabled>Select your category</option>
+                                        aria-label="Large select example"
+                                        value="{{ old('category') ?? $eventData->category }}">
                                         @foreach ($categories as $category)
                                             <option value="{{ $category }}"
-                                                {{ old('category') == $category ? 'selected' : '' }}>
+                                                {{ $eventData->category == $category ? 'selected' : '' }}>
                                                 {{ $category }}
                                             </option>
                                         @endforeach
@@ -51,7 +55,7 @@
                                     <label class="form-label" for="location">Venue</label>
                                     <input type="text" id="location" name="location"
                                         class="form-control form-control-lg" placeholder="Enter your location"
-                                        value="{{ old('location') }}" />
+                                        value="{{ old('location') ?? $eventData->location }}" />
                                     <div class="text-danger pl-2">
                                         {{ $errors->first('location') }}
                                     </div>
@@ -62,7 +66,7 @@
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="date">Event Date</label>
                                     <input type="date" id="date" name="date" class="form-control form-control-lg"
-                                        value="{{ old('date') }}" />
+                                        value="{{ old('date') ?? $eventData->date }}" />
                                     <div class="text-danger pl-2">
                                         {{ $errors->first('date') }}
                                     </div>
@@ -72,7 +76,7 @@
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="time">Event Time</label>
                                     <input type="time" id="time" name="time" class="form-control form-control-lg"
-                                        value="{{ old('time') }}" />
+                                        value="{{ old('time') ?? $eventData->time }}" />
                                     <div class="text-danger pl-2">
                                         {{ $errors->first('time') }}
                                     </div>
@@ -82,7 +86,7 @@
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="photo">Event Thumbnail</label>
                                     <input type="file" id="photo" name="photo" class="form-control form-control-lg"
-                                        value="{{ old('photo') }}" />
+                                        value="{{ old('photo') ?? $eventData->photo_path }}" />
                                     <div class="text-danger pl-2">
                                         {{ $errors->first('photo') }}
                                     </div>
@@ -100,7 +104,7 @@
                             {{-- event name --}}
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="description">Event Description</label>
-                                <textarea class="form-control form-control-lg" placeholder="Enter your event description" name="description">{{ old('description') }}</textarea>
+                                <textarea class="form-control form-control-lg" placeholder="Enter your event description" name="description">{{ old('description') ?? $eventData->description }}</textarea>
                                 <div class="text-danger pl-2">
                                     {{ $errors->first('description') }}
                                 </div>
@@ -118,7 +122,7 @@
                                         <label class="form-label" for="t1_name">Ticket 1 Name</label>
                                         <input type="text" id="t1_name" name="t1_name"
                                             class="form-control form-control-lg" placeholder="Enter your ticket 1 name"
-                                            value="{{ old('t1_name') }}" />
+                                            value="{{ old('t1_name') ?? $eventData->t1_name }}" />
                                         <div class="text-danger pl-2">
                                             {{ $errors->first('t1_name') }}
                                         </div>
@@ -131,7 +135,7 @@
                                         <label class="form-label" for="t1_price">Ticket 1 Price</label>
                                         <input type="text" id="t1_price" name="t1_price"
                                             class="form-control form-control-lg" placeholder="Enter your ticket 1 price"
-                                            value="{{ old('t1_price') }}" />
+                                            value="{{ old('t1_price') ?? $eventData->t1_price }}" />
                                         <div class="text-danger pl-2">
                                             {{ $errors->first('t1_price') }}
                                         </div>
@@ -143,7 +147,7 @@
                                         <label class="form-label" for="t1_count">Ticket 1 Count</label>
                                         <input type="number" id="t1_count" name="t1_count"
                                             class="form-control form-control-lg" placeholder="Enter your ticket 1 count"
-                                            value="{{ old('t1_count') }}" />
+                                            value="{{ old('t1_count') ?? $eventData->t1_count }}" />
                                         <div class="text-danger pl-2">
                                             {{ $errors->first('t1_count') }}
                                         </div>
@@ -159,7 +163,7 @@
                                         <label class="form-label" for="t2_name">Ticket 2 Name</label>
                                         <input type="text" id="t2_name" name="t2_name"
                                             class="form-control form-control-lg" placeholder="Enter your ticket 2 name"
-                                            value="{{ old('t2_name') }}" />
+                                            value="{{ old('t2_name') ?? $eventData->t2_name }}" />
                                         <div class="text-danger pl-2">
                                             {{ $errors->first('t2_name') }}
                                         </div>
@@ -172,7 +176,7 @@
                                         <label class="form-label" for="t2_price">Ticket 2 Price</label>
                                         <input type="text" id="t2_price" name="t2_price"
                                             class="form-control form-control-lg" placeholder="Enter your ticket 2 price"
-                                            value="{{ old('t2_price') }}" />
+                                            value="{{ old('t2_price') ?? $eventData->t2_price }}" />
                                         <div class="text-danger pl-2">
                                             {{ $errors->first('t2_price') }}
                                         </div>
@@ -184,7 +188,7 @@
                                         <label class="form-label" for="t2_count">Ticket 2 Count</label>
                                         <input type="number" id="t2_count" name="t2_count"
                                             class="form-control form-control-lg" placeholder="Enter your ticket 2 count"
-                                            value="{{ old('t2_count') }}" />
+                                            value="{{ old('t2_count') ?? $eventData->t2_count }}" />
                                         <div class="text-danger pl-2">
                                             {{ $errors->first('t2_count') }}
                                         </div>
@@ -200,7 +204,7 @@
                                         <label class="form-label" for="t3_name">Ticket 3 Name</label>
                                         <input type="text" id="t3_name" name="t3_name"
                                             class="form-control form-control-lg" placeholder="Enter your ticket 3 name"
-                                            value="{{ old('t3_name') }}" />
+                                            value="{{ old('t3_name') ?? $eventData->t3_name }}" />
                                         <div class="text-danger pl-2">
                                             {{ $errors->first('t3_name') }}
                                         </div>
@@ -213,7 +217,7 @@
                                         <label class="form-label" for="t3_price">Ticket 3 Price</label>
                                         <input type="text" id="t3_price" name="t3_price"
                                             class="form-control form-control-lg" placeholder="Enter your ticket 3 price"
-                                            value="{{ old('t3_price') }}" />
+                                            value="{{ old('t3_price') ?? $eventData->t3_price }}" />
                                         <div class="text-danger pl-2">
                                             {{ $errors->first('t3_price') }}
                                         </div>
@@ -225,7 +229,7 @@
                                         <label class="form-label" for="t3_count">Ticket 3 Count</label>
                                         <input type="number" id="t3_count" name="t3_count"
                                             class="form-control form-control-lg" placeholder="Enter your ticket 3 count"
-                                            value="{{ old('t3_count') }}" />
+                                            value="{{ old('t3_count') ?? $eventData->t3_count }}" />
                                         <div class="text-danger pl-2">
                                             {{ $errors->first('t3_count') }}
                                         </div>
@@ -240,7 +244,7 @@
                         {{-- submit button --}}
                         <div class="text-center text-lg-start mt-4 pt-2">
                             <button type="submit" class="btn btn-main-md btn-lg"
-                                style="padding-left: 2.5rem; padding-right: 2.5rem;">Create Event</button>
+                                style="padding-left: 2.5rem; padding-right: 2.5rem;">Save Event</button>
 
                         </div>
 

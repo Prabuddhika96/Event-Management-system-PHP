@@ -19,6 +19,15 @@ class EventController extends Controller
         return view('home.home', compact('latestEvent', 'approvedEvents'));
     }
 
+    public function createEvent()
+    {
+        $categories = [
+            'Music',
+            'Drama',
+        ];
+        return view('event.create', ['categories' => $categories]);
+    }
+
     public function store(Request $request)
     {
         // Validate the request data
@@ -40,6 +49,7 @@ class EventController extends Controller
             't3_count' => 'required',
             'user_id' => 'required',
         ]);
+        // dd($request->file('photo'));
 
         // Create and save the event
         $event = new Event($validatedData);
@@ -113,5 +123,72 @@ class EventController extends Controller
 
         $events = Event::where('user_id', $EventOwnerId)->get();
         return view('event.myevents', ['events' => $events]);
+    }
+
+    public function myEventDetails($event)
+    {
+        $eventData = Event::find($event);
+        return view('event.myevent-details', compact('eventData'));
+    }
+
+    public function edit($event)
+    {
+        $categories = [
+            'Music',
+            'Drama',
+        ];
+        $eventData = Event::find($event);
+        return view('event.edit-event', compact('eventData', 'categories'));
+    }
+
+    public function update(Event $event)
+    {
+        // Validate the request data
+        $validatedData = request()->validate([
+            'event_name' => 'required|min:1',
+            'date' => 'required|date',
+            'time' => 'required',
+            'location' => 'required|min:2',
+            'description' => 'required',
+            'category' => 'required',
+            't1_name' => 'required',
+            't1_price' => 'required',
+            't1_count' => 'required',
+            't2_name' => 'required',
+            't2_price' => 'required',
+            't2_count' => 'required',
+            't3_name' => 'required',
+            't3_price' => 'required',
+            't3_count' => 'required',
+            'user_id' => 'required',
+        ]);
+        // dd($validatedData);
+
+        $event->update($validatedData);
+
+        // Handle file upload
+        if (request()->hasFile('photo') && request()->file('photo')->isValid()) {
+            $file = request()->file('photo');
+
+            $updated_path = 'images/thumbnail/' . $event->id . '.' . $file->getClientOriginalExtension();
+
+            $event->update(['photo_path' => $updated_path]);
+
+            // Generate a unique filename for the photo
+            $filename = $event->id . '.' . $file->getClientOriginalExtension();
+
+            // Store the file in the specified directory with the unique filename
+            // $file->storeAs('images/thumbnail', $filename, 'public');
+            if ($file->storeAs('images/thumbnail', $filename, 'public')) {
+                // dd("uploaded");
+            } else {
+                // dd("not uploaded");
+                // Log an error if the file upload fails
+                Log::error('Failed to upload file: ' . $file->getClientOriginalName());
+            }
+        }
+
+        // Redirect to a success page or any other action you want
+        return redirect('/')->with('success', 'Event created successfully!');
     }
 }

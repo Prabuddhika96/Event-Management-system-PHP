@@ -30,7 +30,7 @@
 
 <body class="body-wrapper">
     {{-- nav bar --}}
-    @include('components.navbar')
+    @include('admin.admin-navbar')
     {{-- @include('components.navbar', ['userName' => 'Prabuddhika']) --}}
 
     {{-- @if (session()->has('msg'))
@@ -44,7 +44,7 @@
     </div>
 
 
-    @include('components.footer', ['userName' => 'Prabuddhika'])
+    @include('components.footer')
 
     {{-- boostrap --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -72,16 +72,17 @@
     <!-- Custom Script -->
     <script src="{{ asset('js/custom.js') }}"></script>
 
-    <script>
+    {{-- <script>
         var name = "abc";
         // Get user ID from local storage
-        var userData = localStorage.getItem('loggedUser');
+        var userData = localStorage.getItem('admin');
         var user = JSON.parse(userData); // Corrected JSON.parse() here
 
         if (userData) {
-            window.location.href = '/login';
+            window.location.href = '/admin/login';
         }
-    </script>
+    </script> --}}
+
 </body>
 
 </html>
