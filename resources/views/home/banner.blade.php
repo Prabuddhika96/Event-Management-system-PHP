@@ -1,14 +1,20 @@
-<section class="banner-two "
+<section class="banner-two bg-banner-two overlay-white-slant text-overlay"
     style="background: url('{{ asset('storage/' . $event->photo_path) }}') no-repeat; background-size: cover; background-position: right center;">
-    <div class="container" style="background-color: rgba(240, 248, 255, 0.688); text-align: center; padding: 20px 10px">
-        <div class="row">
-            <div class="col-md-12">
-                <!-- Content Block -->
-                <div class="block">
-                    <h1>{{ $event->event_name }}</h1>
-                    <h3>2023</h3>
-                    <h4>{{ $event->date }}</h4>
-                    <h4>{{ $event->time }}</h4>
+    <div class="container" style="text-align: center; ">
+        <div class="">
+            <div class="row">
+                <div class="col-md-12" style="margin-top: 250px" style="width: auto">
+                    <!-- Content Block -->
+                    <div class="col-md-5" style="color:white; margin: 0 auto;">
+                        <h1 style="color: white; text-transform: uppercase; font-size: 60px">{{ $event->event_name }}
+                        </h1>
+                        <h3
+                            style="font-size: 40px; padding-top: 10px; padding-bottom: 10px; border-radius: 50px; background-color: #000000; margin: 10px auto; ">
+                            {{ $event->category }}</h3>
+
+                        <h4>{{ $event->date }}</h4>
+                        <h4>{{ $event->time }}</h4>
+                    </div>
                 </div>
             </div>
         </div>
