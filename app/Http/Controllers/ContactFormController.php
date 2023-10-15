@@ -6,9 +6,8 @@ use App\Mail\ContactFormMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
-class EmailController extends Controller
+class ContactFormController extends Controller
 {
-    //
     public function create()
     {
         return view('contact.create');

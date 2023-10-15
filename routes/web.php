@@ -32,7 +32,7 @@ Route::get('/about', function () {
 });
 
 Route::get('/contact', [EmailController::class, 'create']);
-Route::post('contact', [EmailController::class, 'store']);
+Route::post('/contact', [EmailController::class, 'store']);
 
 Route::get('/register', [UserController::class, 'register']);
 // Route::get('/register', function () {
