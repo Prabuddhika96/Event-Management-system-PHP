@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -29,9 +30,10 @@ Route::get('/home', function () {
 Route::get('/about', function () {
     return view('about');
 });
-Route::get('/contact', function () {
-    return view('contact.create');
-});
+
+Route::get('/contact', [EmailController::class, 'create']);
+Route::post('contact', [EmailController::class, 'store']);
+
 Route::get('/register', [UserController::class, 'register']);
 // Route::get('/register', function () {
 //     return view('users.create');

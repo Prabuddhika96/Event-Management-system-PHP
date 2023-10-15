@@ -3,7 +3,7 @@
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbar-list-4">
+    <div class="collapse navbar-collapse" id="navbar-list-4" style="margin-right: 80px">
         <ul class="navbar-nav">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
@@ -18,7 +18,7 @@
                     <a class="dropdown-item" href="/create-event">Create Event</a>
                     <div class="dropdown-item" onclick="myevents()" style="cursor: pointer;">My Events</div>
                     <div class="dropdown-item" onclick="bookedevents()" style="cursor: pointer;">Booked Events</div>
-                    <div class="dropdown-item" onclick="logout()">Log Out</div>
+                    <div class="dropdown-item" onclick="logout()" style="cursor: pointer;">Log Out</div>
                 </div>
             </li>
         </ul>

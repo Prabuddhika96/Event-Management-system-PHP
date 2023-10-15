@@ -3,9 +3,9 @@
     <div class="container" style="text-align: center; ">
         <div class="">
             <div class="row">
-                <div class="col-md-12" style="margin-top: 250px" style="width: auto">
+                <div class="col-md-12 banner-middle-container" style="width: auto">
                     <!-- Content Block -->
-                    <div class="col-md-5" style="color:white; margin: 0 auto;">
+                    <div class="col-md-5 banner-block" style="color:white; margin: 0 auto;">
                         <h1 style="color: white; text-transform: uppercase; font-size: 60px">{{ $event->event_name }}
                         </h1>
                         <h3

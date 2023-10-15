@@ -3711,3 +3711,16 @@ ul.pagination .active a {
         padding-top: 200px;
     }
 }
+
+.banner-middle-container {
+    /* width: 500px; */
+    /* height: 800px; */
+    padding: 50px 10px;
+    background-color: #00ff4c49;
+    /* transform: skew(-40deg); */
+    /* border-radius: 100% 0 100% 0; */
+    margin: 0 auto;
+}
+.banner-block {
+    /* transform: skew(40deg); */
+}
