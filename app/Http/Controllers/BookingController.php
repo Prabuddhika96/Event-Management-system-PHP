@@ -4,23 +4,38 @@ namespace App\Http\Controllers;
 
 use App\Models\Booking;
 use App\Models\Event;
+use App\Models\User;
 use Exception;
 use App\Mail\SendEmail;
 use Illuminate\Support\Facades\Mail;
 
 class BookingController extends Controller
 {
-    public function sendEmail()
+    public function sendEmail($userName, $userEmail, $eventName, $ticketName, $eventDate, $eventTime, $location)
     {
-        $data = ['subject' => 'Eventify Bookings', 'body' => 'Hello World!'];
+        $msg = "Dear " . $userName . ",\n\n" .
+            "Thank you for purchasing a ticket for the " . $eventName . ". We are thrilled to have you join us!\n\n" .
+            "Details of your ticket:\n\n" .
+            "\tTicket Type: " . $ticketName . "\n" .
+            "\tEvent Date: " . $eventDate . "\n" .
+            "\tEvent Time: " . $eventTime . "\n" .
+            "\tLocation: " . $location . "\n\n" .
+            "If you have any questions or need further assistance, feel free to reach out.\n\n" .
+            "We look forward to seeing you at the event!\n\n" .
+            "Best regards,\n" .
+            "Eventify";
+
+        $data = ['subject' => 'Eventify Bookings', 'body' => $msg];
 
         try {
-            Mail::to('prabuddhika1996@gmail.com')->send(new SendEmail($data));
+            Mail::to($userEmail)->send(new SendEmail($data));
             return response()->json(['status' => 'success']);
         } catch (\Exception $exception) {
             return response()->json(['status' => 'failed']);
         }
     }
+
+
 
     public function buyTicket($eventId, $ticketType)
     {
@@ -77,7 +92,13 @@ class BookingController extends Controller
 
                 $booking->save();
             }
-            $this->sendEmail();
+            $user = User::find(auth()->user()->id);
+            $event = Event::find($eventId);
+            $propertyName = $ticketName . '_name';
+            // dd($event);
+
+            // ($userName, $userEmail,$eventName,$ticketName, $eventDate,$eventTime,$location)
+            $this->sendEmail($user->name, $user->email, $event->event_name, $event->$propertyName, $event->date, $event->time, $event->location);
 
 
             // Redirect to a success page or return a response indicating successful purchase
