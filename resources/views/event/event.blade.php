@@ -195,6 +195,8 @@
                         <input type="text" id="user_id" name="user_id" hidden value="" />
                         @csrf
                     </form>
+
+                    {{-- <p>{{ $data['body'] }}</p> --}}
                 </div>
             </div>
         </div>

@@ -4,10 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Models\Booking;
 use App\Models\Event;
-use Illuminate\Http\Request;
+use Exception;
+use App\Mail\SendEmail;
+use Illuminate\Support\Facades\Mail;
 
 class BookingController extends Controller
 {
+    public function sendEmail()
+    {
+        $data = ['subject' => 'Eventify Bookings', 'body' => 'Hello World!'];
+
+        try {
+            Mail::to('prabuddhika1996@gmail.com')->send(new SendEmail($data));
+            return response()->json(['status' => 'success']);
+        } catch (\Exception $exception) {
+            return response()->json(['status' => 'failed']);
+        }
+    }
+
     public function buyTicket($eventId, $ticketType)
     {
         // Find the event by its ID
@@ -63,6 +77,7 @@ class BookingController extends Controller
 
                 $booking->save();
             }
+            $this->sendEmail();
 
 
             // Redirect to a success page or return a response indicating successful purchase
